@@ -160,7 +160,7 @@ class _ChatPageState extends State<ChatPage> {
                                     userId) {
                                   showMenu(
                                     position: RelativeRect.fromLTRB(
-                                        100, 600, 150, 400),
+                                        100, 400, 150, 400),
                                     items: <PopupMenuEntry>[
                                       PopupMenuItem(
                                         child: Row(
@@ -216,12 +216,21 @@ class _ChatPageState extends State<ChatPage> {
                     height: 10.0,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 15.0, right: 20.0),
+                    padding: const EdgeInsets.only(
+                        left: 15.0, right: 20.0, bottom: 10.0),
                     child: Row(
                       children: [
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    spreadRadius: 1,
+                                    blurRadius: 3,
+                                    offset: Offset(0, 2),
+                                  )
+                                ],
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20.0),
@@ -366,7 +375,15 @@ class _ChatPageState extends State<ChatPage> {
             decoration: BoxDecoration(
               color: ((doc['senderId'] == userId)
                   ? Colors.green[100]
-                  : Colors.yellow[50]),
+                  : Colors.white),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 3,
+                  offset: Offset(0, 2),
+                )
+              ],
               borderRadius: (((doc['senderId'] == userId)
                   ? BorderRadius.only(
                       topLeft: Radius.circular(5.0),
